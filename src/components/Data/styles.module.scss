@@ -1,0 +1,123 @@
+.data_wrapper {
+    padding: 0px 100px;
+
+    @media (max-width: 852px) {
+        padding: 20px 12px;
+    }
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e6e6e6;
+    max-width: 900px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 852px) {
+         width: 100% !important;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.input_row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    input {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.optional {
+    font-size: 12px;
+    color: #999;
+    font-weight: 400;
+}
+
+.gender_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+.gender_btn {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.phone_input {
+    display: flex;
+    gap: 10px;
+
+    img {
+        width: 24px;
+        height: 16px;
+    }
+
+    input {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px 12px;
+        width: 100%;
+        font-size: 14px;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.logout {
+    background: #f3f3f3;
+    border-radius: 12px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 20px;
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

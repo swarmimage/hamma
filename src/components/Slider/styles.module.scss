@@ -1,0 +1,85 @@
+.slider__container {
+
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 0;
+  padding-top: 40px;
+
+}
+
+.slider__card {
+  width: 100%;
+}
+
+
+.slider{
+  position: relative;
+}
+
+
+.slider_image { 
+  @media (max-width: 480px) {
+    display: none;
+    bottom: 0;
+  }
+}
+
+
+.slider_wrapper{
+  @media (max-width: 480px) {
+    width: auto;
+  }
+}
+
+
+.slider_inimage{
+  display: none;
+  @media (max-width: 480px) {
+    display: block; 
+    width: 70%;
+  }
+}
+
+.slider_imageinside{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.slider_imageinside_button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: 10px; 
+  margin-top: auto;
+}
+
+.slider__container{
+    @media (max-width: 650px) {
+    padding-top: 40px;
+  }
+}
+.button_arrow {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important; /* убирает серый/синий highlight на мобильных */
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+
+  &, &::before, &::after, & * {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+}

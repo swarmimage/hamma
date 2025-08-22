@@ -1,0 +1,175 @@
+.container {
+  width: 95%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.about__title {
+  font-weight: 700;
+  font-size: clamp(22px, 5vw, 36px);
+
+  @media (max-width: 650px) {
+    margin-top: 30px;
+  }
+}
+
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.header_title {
+  font-weight: 700;
+  font-size: clamp(20px, 5vw, 40px);
+  text-align: center; // центруем текст внутри блока
+  display: flex; // чтобы и по высоте можно было центрировать
+  justify-content: center;
+  align-items: center;
+
+}
+
+.top__image {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+  margin-top: 20px;
+  justify-items: center;
+
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 843px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 395px) {
+    gap: 30px;
+    /* чуть меньше расстояние */
+
+    svg,
+    img {
+      width: 80%;
+      /* сжатие картинки */
+      height: auto;
+      /* пропорционально */
+    }
+  }
+}
+
+.down__image {
+  width: 100%;
+
+  @media (max-width: 395px) {
+
+    svg,
+    img {
+      width: 80%;
+      height: auto;
+    }
+  }
+}
+
+
+.top__desc {
+  width: 100%;
+  max-width: 664px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.top__text {
+  color: #828282;
+}
+
+
+
+.body__data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    /* по одному боксу на строку */
+  }
+}
+
+.body__down {
+  width: 95%;
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* расстояние между title и image */
+}
+
+.data__title {
+   font-weight: 700;
+  font-size: clamp(22px, 5vw, 36px);
+}
+
+.data__text {
+  color: #828282;
+}
+
+.down_title {
+  font-weight: 700;
+  font-size: clamp(20px, 5vw, 40px);
+}
+
+.adaptive_title{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.adaptive{
+  display: none;
+    @media (max-width: 425px) {
+    display: block;
+  }
+}
+
+.adaptive_box{
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.adaptive_body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
+.adaptive{
+  margin-top: 20px;
+}
+
+.adaptivein__title{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.adaptive__text{
+  color: #53C4AF;
+}

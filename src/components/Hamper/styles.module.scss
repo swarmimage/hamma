@@ -1,0 +1,46 @@
+.cartContainer {
+  display: flex;
+  width: 100%;
+}
+
+.cartBlock {
+  min-width: 0;
+  /* важно, чтобы контент мог сжиматься */
+}
+
+@media (max-width: 930px) {
+  .cartContainer {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .summary {
+    order: -1;
+    /* Итого первым */
+    width: 100%;
+    /* занимает всю ширину */
+    margin-top: 0 !important;
+    margin-bottom: 20px;
+
+    @media (max-width: 650px) {
+      margin-top: 35px !important;
+    }
+
+  }
+
+  .cartBlock {
+    width: 100%;
+  }
+}
+
+
+
+.korzina {
+  width: 800px;
+  max-width: 100%;
+  transition: width 0.3s ease; // плавное изменение ширины
+
+  @media (max-width: 930px) {
+    width: 100%; // на меньших экранах заполняет всю ширину
+  }
+}

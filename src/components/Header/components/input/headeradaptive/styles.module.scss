@@ -1,0 +1,23 @@
+.signup_button {
+    font-weight: 900;
+}
+
+.body {}
+
+.body__button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 2px 0px -1px rgba(34, 60, 80, 0.09);
+    -moz-box-shadow: 0px 2px 0px -1px rgba(34, 60, 80, 0.09);
+    box-shadow: 0px 2px 0px -1px rgba(34, 60, 80, 0.09);
+}
+
+.body__language{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+

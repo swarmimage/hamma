@@ -1,0 +1,161 @@
+/* Глобальные переменные модуля */
+:local(.container) {
+  --card-min: 180px;
+  --card-max: 368px;
+  --card-vw: 19vw;   /* ширина карточки в процентах экрана */
+  --gap: 20px;
+}
+
+.container {
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.store__content {
+  margin:    auto;
+  max-width: 1400px;
+}
+
+/* Обычный режим: одна строка без переноса */
+.row {
+  display: flex;
+  gap: clamp(1.25rem, -2.6563rem + 12.5vw, 4.375rem);
+  flex-wrap: nowrap;
+  overflow-x: auto; /* ✅ скролл по горизонтали */
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+
+  /* убираем полоску скролла в Chrome/Safari */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* убираем полоску скролла в Firefox */
+  scrollbar-width: none;
+}
+
+/* Невидимый измеритель ширины (для ResizeObserver) */
+.measure {
+  position: absolute;
+  left: -99999px;
+  top: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Свайпер (скролл) */
+.store__slider {
+  padding: 0 !important; /* слайды прямо у края */
+  margin: 0 !important;
+}
+
+.slide {
+  width: clamp(var(--card-min), var(--card-vw), var(--card-max)) !important;
+  display: flex !important;
+  padding: 0 !important;
+  margin: 0 0 0 0 !important;
+}
+
+/* Карточка */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  width: clamp(var(--card-min), var(--card-vw), var(--card-max));
+  flex: 0 0 clamp(var(--card-min), var(--card-vw), var(--card-max));
+  min-width: 0;
+  cursor: pointer;
+}
+
+.card_top {
+  width: 100%;
+  display: flex;
+  gap: clamp(4px, 0.7vw, 8px);
+  align-items: center;
+}
+
+.star {
+  width: clamp(12px, 1.5vw, 15px);
+  height: clamp(12px, 1.5vw, 15px);
+}
+
+.store__rate {
+  font-weight: 600;
+  font-size: clamp(12px, 1vw, 14px);
+}
+
+.store__vote {
+  font-size: 12px;
+  font-weight: 400;
+  color: #828282;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_prices {
+  display: flex;
+  gap: clamp(6px, 1vw, 12px);
+}
+
+.store__price {
+  text-decoration: line-through;
+  color: #828282;
+  font-size: clamp(10px, 1vw, 13px);
+}
+
+.store__totalprice {
+  font-size: clamp(10px, 1vw, 13px);
+}
+
+.store__discount {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: clamp(10px, 1vw, 13px);
+}
+
+.store__intitle {
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 600;
+  margin: 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* максимум по ширине карточки */
+}
+
+/* Иконка корзины */
+.basket {
+  width: clamp(24px, 3vw, 38px);
+  height: clamp(24px, 3vw, 38px);
+  display: block;
+}
+
+/* Шапка секции (добавил, чтобы не было "пустых" классов) */
+.store__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.store__title {
+  font-weight: 700;
+  line-height: 1.2;
+}
+

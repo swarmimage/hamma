@@ -1,0 +1,31 @@
+.swiperimg {
+  width: 100%;
+  max-width: 670px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.thumbImg {
+  width: 90px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mainSwiper {
+  width: 100%;
+  max-width: 670px;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}

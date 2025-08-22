@@ -1,0 +1,24 @@
+.topbar {
+  width: 100%;
+  background: #f5f5f5;   // светло-серый фон
+  padding: 5px 20px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;  // ссылки слева
+  gap: 20px;                    // промежутки между ссылками
+
+  @media (max-width: 650px) {
+    display: none;              // скрываем на мобилках
+  }
+}
+
+.topbar_link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #53C4AF; // зелёный при наведении
+  }
+}

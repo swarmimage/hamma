@@ -1,0 +1,58 @@
+
+.container {
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.panel_wrapper{
+    padding: 20px 20px;
+}
+
+.panel_main {
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.panel_title {
+    display: flex;
+    padding: 1px 0;
+    align-items: center;
+}
+.panel_link {
+  cursor: pointer;
+  font-size: 14px;
+  &:hover {
+   color: #c1c1c1;
+  }
+  &:active {
+    opacity: 0.5; 
+  }
+}
+
+
+.panel_username{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.panel_buttons{
+    display: flex;  
+    flex-direction: column;
+    @media (max-width: 768px ) {
+      width: 100% !important;
+    }
+}
+
+.panel_button{
+    display: flex;
+    justify-content: start !important;
+    background-color: #53C4AF;
+    align-items: center;
+    gap: 7px;
+    
+}
