@@ -1,11 +1,9 @@
-/* Глобальные переменные модуля */
-:local(.container) {
+.container {
   --card-min: 180px;
   --card-max: 368px;
-  --card-vw: 19vw;   /* ширина карточки в процентах экрана */
+  --card-vw: 19vw;
   --gap: 20px;
 }
-
 .container {
   width: 95%;
   max-width: 1600px;
