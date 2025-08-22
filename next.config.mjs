@@ -1,15 +1,11 @@
-/** @type {import('next').NextConfig} */
-import path from 'path';
+import { join } from 'path';
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  webpack(config) {
-    // Указываем Next.js, что папка с страницами находится в src/pages
-    config.resolve.modules.push(path.resolve('./src'));
-    return config;
-  },
+  pageExtensions: ['jsx', 'js'],
+  // Настройка для папки src
+  // Нужно убедиться, что Vercel видит src/pages
 };
 
 export default nextConfig;
-  
