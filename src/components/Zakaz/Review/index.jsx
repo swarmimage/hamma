@@ -10,10 +10,10 @@ import {
   Button,
   FormControl,
   FormLabel,
-  Input,
   Text,
   Box,
   Flex,
+  Textarea,
 } from '@chakra-ui/react'
 import { Upfinger } from '@/icons/upfinger'
 import { Downfinger } from '@/icons/downfinger'
@@ -27,15 +27,20 @@ const Review = ({ isOpen, onClose, product }) => {
   return (
     <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent   maxW={{ base: 'calc(100% - 40px)', md: '500px' }} // на мобилке 20px слева и справа
-  mx={{ base: '20px', md: 'auto' }}   >
+      <ModalContent
+        maxW={{ base: 'calc(100% - 40px)', md: '600px' }}
+        mx={{ base: '20px', md: 'auto' }}
+      >
         <ModalHeader>Оцените товар</ModalHeader>
         <ModalCloseButton />
-        <ModalBody pb={6}>
+        <ModalBody
+          pb={6}
+          overflow="hidden"   // 🔥 убрали скролл
+        >
           <Flex align="center" gap="12px" mb="16px">
-             <Box
-              w={{ base: '250px', sm: '60px', md: '70px' }} // размеры зависят от экрана
-              h={{ base: '100px', sm: '60px', md: '70px' }}
+            <Box
+              w={{ base: '250px', sm: '60px', md: '270px' }}
+              h={{ base: '100px', sm: '60px', md: '170px' }}
               borderRadius="8px"
               overflow="hidden"
             >
@@ -53,27 +58,53 @@ const Review = ({ isOpen, onClose, product }) => {
             </Box>
           </Flex>
 
-            <Box className={styles.rate_product}>
-              <FormLabel>Как вам товар?</FormLabel>
+          <Box className={styles.rate_product}>
+            <FormLabel>Как вам товар?</FormLabel>
             <Flex gap={3} className={styles.rate_fingers}>
-                <Upfinger/>
-               <Downfinger/>
+              <Upfinger />
+              <Downfinger />
             </Flex>
-            </Box>
+          </Box>
 
           <FormControl mb={2}>
-            <Input ref={initialRef} placeholder="Достоинства" />
+            <Textarea
+              ref={initialRef}
+              placeholder="Достоинства"
+              h="70px"
+              fontSize="14px"
+              px="16px"
+              py="10px"
+              resize="none"
+            />
           </FormControl>
+
           <FormControl mb={2}>
-            <Input placeholder="Недостатки" />
+            <Textarea
+              placeholder="Недостатки"
+              h="70px"
+              fontSize="14px"
+              px="16px"
+              py="10px"
+              resize="none"
+            />
           </FormControl>
+
           <FormControl>
-            <Input placeholder="Комментарии" />
+            <Textarea
+              placeholder="Комментарии"
+              h="70px"
+              fontSize="14px"
+              px="16px"
+              py="10px"
+              resize="none"
+            />
           </FormControl>
         </ModalBody>
 
         <ModalFooter>
-          <Button color="#fff" bgColor={'#53C4AF'} mr={3}>Оставить отзыв</Button>
+          <Button color="#fff" bgColor={'#53C4AF'} mr={3}>
+            Оставить отзыв
+          </Button>
           <Button onClick={onClose}>Отмена</Button>
         </ModalFooter>
       </ModalContent>

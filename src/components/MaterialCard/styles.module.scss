@@ -2,7 +2,6 @@
   --card-min: 180px;
   --card-max: 368px;
   --card-vw: 19vw;
-  --gap: 20px;
 }
 .container {
   width: 95%;
@@ -11,15 +10,12 @@
   padding: 10px 0;
 }
 
-.store__content {
-  margin:    auto;
-  max-width: 1400px;
-}
+
 
 /* Обычный режим: одна строка без переноса */
 .row {
   display: flex;
-  gap: clamp(1.25rem, -2.6563rem + 12.5vw, 4.375rem);
+ gap: clamp(10px, 1.2vw, 50px);
   flex-wrap: nowrap;
   overflow-x: auto; /* ✅ скролл по горизонтали */
   scroll-behavior: smooth;
@@ -144,7 +140,6 @@
   display: block;
 }
 
-/* Шапка секции (добавил, чтобы не было "пустых" классов) */
 .store__top {
   display: flex;
   align-items: center;

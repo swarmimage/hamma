@@ -34,19 +34,26 @@
   margin-top: 20px;
 }
 
-.body_card {
+
+.body_right{
   display: flex;
   flex-direction: column;
-  max-width: 408px;
+
+  max-width: 600px;
   width: 100%;
   border: 1px solid;
   border-radius: 8px;
   border-color: #36374033;
 
-  @media (max-width: 868) {
+}
+
+.body_card {
+  
+  @media (max-width: 868px) {
     width: 100%;
     max-width: 1200px;
   }
+
 }
 
 
@@ -84,6 +91,7 @@
   display: flex;
   align-items: center;
 }
+
 .card_payment {
   display: flex;
   align-items: center;
@@ -99,67 +107,65 @@
   flex-shrink: 0;
   width: clamp(55px, calc(10px + 18vw), 115px);
 }
+
 .body {
   display: flex;
   justify-content: space-between; // раскидывает влево-вправо
   align-items: flex-start;
-  width: 100%;         // вместо 100vw
-  max-width: 1400px;   // ограничение по центру
+  width: 100%; // вместо 100vw
   margin: 20px auto 0; // центрирование
   gap: 40px;
 }
 
-.body_left,
-.body_right {
-  flex: 1;       // пусть делят место
-  min-width: 0;  // важно для сжатия без вылазов
-}
 
 .body_left {
+  position: relative;
   display: flex;
-  justify-content: flex-start; // картинка уходит влево
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+
+
+  border-radius: 12px;
+  overflow: hidden;
 
   img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    max-width: 390px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 868px) {
+    max-width: 600px;
+    width: 100%;
   }
 }
 
-.body_right {
-  display: flex;
-  justify-content: flex-end; // карточка уходит вправо
-}
 
 @media (max-width: 868px) {
   .body {
-    flex-direction: column;   // переводим в колонку
-    align-items: center;      // центрируем по горизонтали
-    gap: 20px;                // расстояние между фото и карточкой
+    flex-direction: column; // переводим в колонку
+    align-items: center; // центрируем по горизонтали
+    gap: 20px; // расстояние между фото и карточкой
   }
 
-  .body_left,
-  .body_right {
-    width: 100%;              // пусть занимают всю ширину
-    display: flex;
-    justify-content: center;  // центрируем контент внутри
-  }
 }
 
-.goods{
+.goods {
   margin-top: 32px !important;
-  width: 95%;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 10px 0;
 }
 
 .swiperimg {
   width: 100%;
-  max-width: 650px;  // ограничение
+  max-width: 650px; // ограничение
   height: auto;
   object-fit: contain;
   border-radius: 12px;
   display: block;
-  margin: 0 auto;    // чтобы всегда было по центру
+  margin: 0 auto; // чтобы всегда было по центру
 }

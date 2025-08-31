@@ -24,7 +24,7 @@ const Panel = () => {
   const activePanel = panelButtons.find((panel) => panel.key === activeTab)
 
   return (
-    <Box className={styles.container}>
+    <Box className="container">
       <Box className={styles.panel_wrapper}>
         <Box className={styles.panel}>
           <Box className={styles.panel_title}>

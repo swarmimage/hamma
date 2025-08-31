@@ -13,6 +13,8 @@ import {
 } from "@chakra-ui/react";
 import MaterialCard from "../MaterialCard";
 import styles from "./styles.module.scss";
+import { Heart } from "@/icons/heart";
+import { Delet } from "@/icons/delete";
 
 const parsePrice = (value) => {
   if (typeof value === "number") return value;
@@ -29,6 +31,7 @@ const Hamper = () => {
     useCart();
 
   const [selectedItems, setSelectedItems] = useState([]);
+  const [extraWarranty, setExtraWarranty] = useState(false);
 
   const itemsCount = useMemo(
     () => cartItems.reduce((acc, it) => acc + (it.quantity || 1), 0),
@@ -54,7 +57,8 @@ const Hamper = () => {
   }, [cartItems]);
 
   const deliveryCost = 0;
-  const finalTotal = productsTotal + deliveryCost - discount;
+  const warrantyCost = extraWarranty ? 150000 : 0;
+  const finalTotal = productsTotal + deliveryCost - discount + warrantyCost;
 
   const toggleSelectAll = (checked) => {
     if (checked) {
@@ -74,9 +78,9 @@ const Hamper = () => {
     selectedItems.length === cartItems.length && cartItems.length > 0;
 
   return (
-    <Box>
+    <Box className="container">
       <Flex
-        maxW="1400px"
+        className={styles.basket}
         mx="auto"
         p="20px"
         gap="24px"
@@ -85,13 +89,13 @@ const Hamper = () => {
         className={styles.cartContainer}
       >
         {/* Левая колонка — корзина */}
-        <Box
-          flex="1 1 0%"
-          minW={0}
-          w={{ base: "100%", md: "auto" }}
-          className={styles.cartBlock}
-        >
-          <Text fontSize="28px" fontWeight="bold" mb="24px">
+        <Box flex="1 1 0%" className={styles.cartBlock}>
+          <Text
+            className={styles.title}
+            fontSize="28px"
+            fontWeight="bold"
+            mb="24px"
+          >
             Корзина
           </Text>
 
@@ -113,9 +117,9 @@ const Hamper = () => {
               <Box
                 className={styles.korzina}
                 w={{
-                  base: "100%",     // до 768px — всегда на всю ширину
-                  md: "100%",       // 768px–930px — тоже на всю ширину
-                  lg: "800px"       // от 930px — фикс 800px
+                  base: "100%",
+                  md: "100%",
+                  lg: "800px",
                 }}
                 maxW="100%"
                 mx="auto"
@@ -151,16 +155,19 @@ const Hamper = () => {
               </Box>
             ) : (
               <Box w="100%">
-                <Checkbox
-                  mb="16px"
-                  colorScheme="teal"
-                  isChecked={allSelected}
-                  onChange={(e) => toggleSelectAll(e.target.checked)}
-                >
-                  Всего: {itemsCount} шт
-                </Checkbox>
+                <Box className={styles.chekbox}>
+                  <Checkbox
+                    mb="16px"
+                    colorScheme="teal"
+                    isChecked={allSelected}
+                    onChange={(e) => toggleSelectAll(e.target.checked)}
+                    borderBottom={2}
+                  >
+                    <Text> Всего: {itemsCount} шт</Text>
+                  </Checkbox>
+                </Box>
 
-                <VStack spacing="16px" align="stretch" w="100%">
+                <VStack spacing="16px" align="stretch" w="100%" marginTop={5}>
                   {cartItems.map((item, index) => {
                     const price = parsePrice(item.totalprice ?? item.price);
                     const isChecked = selectedItems.includes(item.title);
@@ -198,7 +205,11 @@ const Hamper = () => {
                             flexShrink={0}
                           />
 
-                          <Box flex="1 1 240px" minW={0} w={{ base: "100%", sm: "auto" }}>
+                          <Box
+                            flex="1 1 240px"
+                            minW={0}
+                            w={{ base: "100%", sm: "auto" }}
+                          >
                             <Text
                               fontWeight="semibold"
                               fontSize="16px"
@@ -225,24 +236,44 @@ const Hamper = () => {
                               </Text>
                             </HStack>
 
-                            <HStack spacing="12px" mt="8px" flexWrap="wrap" rowGap="4px">
+                            <HStack
+                              spacing="12px"
+                              mt="8px"
+                              flexWrap="wrap"
+                              rowGap="4px"
+                            >
                               <Button
                                 variant="link"
                                 color="#48535B"
-                                fontSize="14px"
+                                fontSize="16px"
                                 p="0"
                                 minW="auto"
+                                _hover={{ textDecoration: "none" }}
+                                _active={{ textDecoration: "none" }}
                               >
+                                <Heart />
                                 В избранное
                               </Button>
+
+                              <Box
+                                h="16px"
+                                w="1px"
+                                bg="#0000001A"
+                                mx="4px"
+                                alignSelf="center"
+                              />
+
                               <Button
                                 variant="link"
                                 color="red"
-                                fontSize="14px"
+                                fontSize="16px"
                                 p="0"
                                 minW="auto"
                                 onClick={() => removeFromCart(item.title)}
+                                _hover={{ textDecoration: "none" }}
+                                _active={{ textDecoration: "none" }}
                               >
+                                <Delet />
                                 Удалить
                               </Button>
                             </HStack>
@@ -258,11 +289,9 @@ const Hamper = () => {
                             flexShrink={0}
                           >
                             <Button
-                              size="sm"
-                              variant="outline"
                               onClick={() => decreaseQuantity(item.title)}
-                              minW="36px"
-                              flexShrink={0}
+                              bgColor={"#F4F4F4"}
+                              fontSize={20}
                             >
                               –
                             </Button>
@@ -270,11 +299,10 @@ const Hamper = () => {
                               {item.quantity || 1}
                             </Text>
                             <Button
-                              size="sm"
-                              variant="outline"
                               onClick={() => increaseQuantity(item.title)}
-                              minW="36px"
-                              flexShrink={0}
+                              bgColor={"#F4F4F4"}
+                              fontWeight={"bold"}
+                              fontSize={20}
                             >
                               +
                             </Button>
@@ -284,6 +312,27 @@ const Hamper = () => {
                     );
                   })}
                 </VStack>
+
+                <Checkbox
+                  mt="20px"
+                  colorScheme="teal"
+                  isChecked={extraWarranty}
+                  onChange={(e) => setExtraWarranty(e.target.checked)}
+                  w="100%"
+                  sx={{
+                    '.chakra-checkbox__label': {
+                      width: '100%',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    },
+                  }}
+                >
+                  <Text>Дополнительная гарантия 1 год</Text>
+                  <Text>{fmt(150000)} сум</Text>
+                </Checkbox>
+
+
               </Box>
             )}
           </Flex>
@@ -297,7 +346,7 @@ const Hamper = () => {
           borderRadius="12px"
           p="20px"
           bg="white"
-          mt={{ base: 0, md: 65 }}
+          mt={{ base: 0, md: 95 }}
           className={styles.summary}
           alignSelf={{ base: "stretch", md: "flex-start" }}
         >
@@ -322,6 +371,14 @@ const Hamper = () => {
               <Text>Скидка</Text>
               <Text textAlign="right">-{fmt(discount)} сум</Text>
             </Flex>
+            {extraWarranty && (
+              <Flex justify="space-between" gap="12px">
+                <Text>Доп. гарантия</Text>
+                <Text fontWeight="medium" textAlign="right">
+                  {fmt(warrantyCost)} сум
+                </Text>
+              </Flex>
+            )}
           </VStack>
 
           <Divider my="12px" />
@@ -355,12 +412,13 @@ const Hamper = () => {
             >
               ✓
             </Box>
-            <Text flex="1" minW={0}>Мы доставим эти товары бесплатно</Text>
+            <Text flex="1" minW={0}>
+              Мы доставим эти товары бесплатно
+            </Text>
           </Flex>
         </Box>
       </Flex>
 
-      {/* Доп. карточки под контентом — не мешают адаптиву */}
       <MaterialCard />
     </Box>
   );

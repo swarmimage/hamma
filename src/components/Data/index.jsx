@@ -18,13 +18,13 @@ import { useRouter } from 'next/router'
 
 const Data = () => {
   const { control } = useForm()
-  const [gender, setGender] = useState('male') // 'male' или 'female'
+  const [gender, setGender] = useState('male') 
   const { logout } = useAuth()
   const router = useRouter()
 
   const handleLogout = () => {
     logout()
-    router.push('/') // Переход на главную после выхода
+    router.push('/') 
   }
 
   return (

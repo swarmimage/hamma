@@ -13,8 +13,9 @@ const Footer = () => {
         <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" gap={10}>
           {/* Информация */}
           <VStack align="flex-start" spacing={2}>
-            <Text fontWeight="bold">Информация</Text>
+            <Text className={styles.footer__title} fontWeight="bold">Информация</Text>
               <Link
+              className={styles.footer__text}
                 as={NextLink}
                 href="/aboutus"
                 color="gray.400"
@@ -23,6 +24,7 @@ const Footer = () => {
                 О нас
               </Link>
               <Link
+              className={styles.footer__text}
                 as={NextLink}
                 href="/aboutus"
                 color="gray.400"
@@ -31,6 +33,7 @@ const Footer = () => {
                 Блог
               </Link>
               <Link
+              className={styles.footer__text}
                 as={NextLink}
                 href="/contact"
                 color="gray.400"
@@ -39,6 +42,7 @@ const Footer = () => {
                 Контакты
               </Link>
               <Link
+              className={styles.footer__text}
                 as={NextLink}
                 href="/publicoffer"
                 color="gray.400"
@@ -50,28 +54,28 @@ const Footer = () => {
 
           {/* Контакты */}
           <VStack align="flex-start" spacing={2}>
-            <Text fontWeight="bold">Контакты для предложений</Text>
-            <Text as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>yordam@hamma.uz</Text>
-            <Link as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Форма обратной связи</Link>
+            <Text className={styles.footer__title} >Контакты для предложений</Text>
+            <Text className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>yordam@hamma.uz</Text>
+            <Link  className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Форма обратной связи</Link>
           </VStack>
 
           {/* Телефон и адрес */}
           <VStack align="flex-start" spacing={2}>
-            <Text fontWeight="bold">Телефон</Text>
-            <Text as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>+998 90 123 45 67</Text>
-            <Text fontWeight="bold" pt={2}>Адрес</Text>
-            <Text as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Алмазарский район,<br />ул. Джами, 12.</Text>
+            <Text className={styles.footer__title} >Телефон</Text>
+            <Text className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>+998 90 123 45 67</Text>
+            <Text className={styles.footer__title} >Адрес</Text>
+            <Text className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Алмазарский район,<br />ул. Джами, 12.</Text>
           </VStack>
 
           {/* Оплата и соцсети */}
           <VStack align="flex-start" spacing={3}>
-            <Text fontWeight="bold">Платежная система</Text>
+            <Text className={styles.footer__title} >Платежная система</Text>
             <HStack spacing={3}>
               <Image src="assets/payment/payme.png" alt="Click" h="6" />
               <Image src="assets/payment//click.png" alt="Payme" h="6" />
             </HStack>
 
-            <Text fontWeight="bold">LOGO в соц.сетях</Text>
+            <Text  className={styles.footer__title}  >LOGO в соц.сетях</Text>
             <HStack spacing={3}>
               <Image src="assets/socials/1.png" alt="Click" h="6" />
               <Image src="assets/socials/2.png" alt="Click" h="6" />
@@ -84,10 +88,10 @@ const Footer = () => {
 
         <Box mt={10} borderTop="1px solid #2c2c2c" pt={4}>
           <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
-            <Text>HAMMA - Все права защищены.</Text>
+            <Text  className={styles.footer__text}>HAMMA - Все права защищены.</Text>
             <HStack spacing={6} pt={{ base: 2, md: 0 }}>
-              <Link as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Политика конфиденциальности</Link>
-              <Link as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Условия использования</Link>
+              <Link  className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Политика конфиденциальности</Link>
+              <Link  className={styles.footer__text} as={NextLink} href="/" color="gray.400" _hover={{ color: "white" }}>Условия использования</Link>
             </HStack>
           </Flex>
         </Box></div>

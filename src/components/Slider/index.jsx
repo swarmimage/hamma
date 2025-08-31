@@ -31,8 +31,10 @@ const Slider = () => {
   ]
 
   return (
-    <Box className={styles.slider__container} position="relative">
-      <Button className={styles.button_arrow}
+    <Box className="container" position="relative" pt="40px">
+      {/* Кнопки навигации */}
+      <Button
+        className={styles.button_arrow}
         ref={prevRef}
         position="absolute"
         top="50%"
@@ -40,8 +42,9 @@ const Slider = () => {
         variant={'unstyled'}
         transform="translateY(-50%)"
         zIndex="2"
-         display={'flex'}
-        alignItems={'center'}borderRadius={60}
+        display={'flex'}
+        alignItems={'center'}
+        borderRadius={60}
       >
         <Arrow1 style={{ transform: 'rotate(180deg)' }} />
       </Button>
@@ -56,11 +59,13 @@ const Slider = () => {
         transform="translateY(-50%)"
         zIndex="2"
         display={'flex'}
-        alignItems={'center'}borderRadius={60}
+        alignItems={'center'}
+        borderRadius={60}
       >
         <Arrow className={styles.btn} width={'100%'} />
       </Button>
 
+      {/* Слайдер */}
       <div className={styles.slider_wrapper}>
         <Swiper
           navigation={{
@@ -87,22 +92,34 @@ const Slider = () => {
                 align="center"
                 justify="space-between"
               >
-                <VStack align="start" spacing={4} maxW="600px"
-                  p={[4, 6, 10]}>
-                  <Text lineHeight={'1.1'} fontSize={'clamp(1.25rem, 0.938rem + 1.56vw, 2.5rem)'} fontWeight="bold">
+                <VStack align="start" spacing={4} maxW="600px" p={[4, 6, 10]}>
+                  <Text
+                    lineHeight={'1.1'}
+                    fontSize={'clamp(1.25rem, 0.938rem + 1.56vw, 2.5rem)'}
+                    fontWeight="bold"
+                  >
                     {slide.title}
                   </Text>
                   <Text fontSize="md" color="gray.600">
                     {slide.description}
                   </Text>
                   <div className={styles.slider_imageinside}>
-                    <Button className={styles.slider_imageinside_button} bg="#38b2ac" color="white" _hover={{ bg: '#319795' }} borderRadius="xl" >
+                    <Button
+                      className={styles.slider_imageinside_button}
+                      bg="#38b2ac"
+                      color="white"
+                      _hover={{ bg: '#319795' }}
+                      borderRadius="xl"
+                    >
                       Смотреть все
                     </Button>
                     <img className={styles.slider_inimage} src={h.src} alt="" />
                   </div>
                 </VStack>
-                <img className={styles.slider_image} src={h.src} alt=""
+                <img
+                  className={styles.slider_image}
+                  src={h.src}
+                  alt=""
                   style={{
                     width: 'clamp(18.75rem, 11.672rem + 35.39vw, 47.063rem)',
                     maxWidth: '100%',
@@ -117,7 +134,6 @@ const Slider = () => {
         </Swiper>
       </div>
     </Box>
-
   )
 }
 

@@ -1,57 +1,42 @@
-
-
-.container {
-  width: 90%;
-  margin: 0 auto !important; 
-  padding: 10px 0;
-} 
-
-.catalog__content {
-  overflow: visible;
-  margin: 0 auto !important; // было auto — убрали центрирование
-  max-width: 1600px;
-  padding: 0;
+.catalog__content{
+  display: flex;
+  justify-content: space-between;
 }
 
 .catalog__title {
   margin-bottom: 24px;
-  margin-left: 0; // можно убрать вообще
-  text-align: left; // чтобы текст всегда был в начале
+  text-align: left;
 }
 
 .catalog__slider {
   overflow-x: auto;
   padding-bottom: 10px;
-  padding-left: 0; // убрал лишний отступ, чтобы было ровно под заголовком
+  scrollbar-width: none;
 }
 
-// все слайды
 .slide {
   width: auto !important;
   display: flex !important;
-  margin-left: clamp(0.625rem, -0.179rem + 4.02vw, 3.438rem);
+  margin-left: clamp(15px, calc((100vw - 375px) / 15), 100px);
   width: 200px;
   height: 220px;
 }
 
-
-
-// первый слайд без отступа слева
 .firstSlide {
   margin-left: 0 !important;
-  
 }
 
+
 .card {
+  padding: 12px;
   background: white;
   border-radius: 12px;
-  padding: 12px;
   width: 180px;
   text-align: center;
   cursor: pointer;
 }
 
-.catalog__intitle{
+.catalog__intitle {
   font-weight: 650;
   font-size: 14px;
 }
@@ -61,9 +46,4 @@
   height: auto;
   object-fit: contain;
   margin-bottom: 8px;
-}
-
-.title {
-  font-size: 14px;
-  font-weight: 500;
 }

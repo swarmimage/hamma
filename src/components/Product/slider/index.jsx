@@ -18,13 +18,13 @@ const ProductGallery = ({ images = [] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Box display="flex" gap="20px" w="100%" minW={0} alignItems="flex-start">
-      {/* Левая колонка превью */}
-      {/* Левая колонка превью */}
+    <Box display="flex" w="100%" minW={0} alignItems="flex-start">
+      {/* Левый блок — превью */}
       <Box
         w="90px"
         h="400px"
         flex="0 0 auto"
+       mr="clamp(20px, 7vw, 200px)"
         sx={{
           display: "none",
           "@media (min-width: 1085px)": { display: "block" },
@@ -35,18 +35,21 @@ const ProductGallery = ({ images = [] }) => {
           flexDirection="column"
           gap="10px"
           h="100%"
-        // overflowY убрали, чтобы скролла не было
         >
           {images.map((src, index) => (
             <Image
               key={index}
               src={src}
               alt={`thumb-${index}`}
-              className={`${styles.thumbImg} ${activeIndex === index ? styles.activeThumb : ""
-                }`}
+              className={`${styles.thumbImg} ${
+                activeIndex === index ? styles.activeThumb : ""
+              }`}
               style={{
                 cursor: "pointer",
-                border: activeIndex === index ? "2px solid #000" : "2px solid transparent",
+                border:
+                  activeIndex === index
+                    ? "2px solid #000"
+                    : "2px solid transparent",
                 borderRadius: "8px",
               }}
               onClick={() => {
@@ -57,9 +60,14 @@ const ProductGallery = ({ images = [] }) => {
         </Box>
       </Box>
 
-
       {/* Правый блок — основной слайдер */}
-      <Box flex="1" minW={0} position="relative">
+      <Box
+        flex="1"
+        minW={0}
+        position="relative"
+        bgImage="url('/backgroundimage.png')"
+        bgSize="1000px auto"
+      >
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           spaceBetween={10}
@@ -67,6 +75,7 @@ const ProductGallery = ({ images = [] }) => {
           slidesPerView={1}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           className={styles.mainSwiper}
+          style={{ width: "100%", height: "100%" }}
         >
           {images.map((src, index) => (
             <SwiperSlide key={index}>

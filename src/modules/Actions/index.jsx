@@ -1,17 +1,16 @@
 import Actions from '@/components/Actions'
-import Numbers from '@/components/Contact'
 import Footer from '@/components/Footer'
-import Info from '@/components/Info'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { actionsItems } from '@/data/actionsData'
 
 const Conduct = () => {
   return (
-      <Layout>
-        <Actions/>
+    <Layout>
+      <Actions items={actionsItems}  title="Акции"/>
       <Footer/>
     </Layout>
   )
 }
 
-export default Conduct
+export default Conduct;
+

@@ -2,41 +2,50 @@
 
 import { Box, Button, HStack, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import Image from 'next/image'
 import styles from './styles.module.scss'
 import { LogoIcon } from '@/icons/logo-icon'
 import SearchInput from './components/input'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-import { LangIcon } from '@/icons/language-icon'
 import { BascketIcon } from '@/icons/basket-icon'
 import Headeradaptive from './components/input/headeradaptive'
 import Catgories from './components/input/subinput'
 import Registration from '../Registration'
-import langImg from '../../../public/lga.png'
-import Avatar from '../../../public/avatar.png'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useAuth } from '@/context/auth-context'
+import { useCart } from '@/context/cart-context'  // ✅ добавил импорт
 import TopBar from '../Topbar'
-
+import LanguageSelect from './language'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false)
+
   const { isAuthenticated } = useAuth()
+  const { cartItems } = useCart()   // ✅ достаем cartItems из контекста
   const router = useRouter()
+
+  // ✅ считаем количество товаров в корзине
+  const totalQuantity = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0
+  )
+
   return (
     <>
       <Box className={styles.header_box} position="fixed" zIndex={20} top="0" left="0" w="100%">
-         <TopBar />
+        <TopBar />
         <div className={styles.container}>
           <div className={styles.header_wrapper}>
             <div className={styles.haeder}>
+              {/* Лого */}
               <Link href="/" passHref>
                 <Box className={styles.header__logo} cursor="pointer">
                   <LogoIcon />
                 </Box>
               </Link>
+
+              {/* Поиск + категории */}
               <div className={styles.header__search}>
                 <Button
                   className={styles.header__search_btn}
@@ -59,24 +68,45 @@ const Header = () => {
                 </div>
               </div>
 
+              {/* Адаптив */}
               <div className={styles.adaptiveWrapper}>
                 <Headeradaptive />
               </div>
 
+              {/* Настройки справа */}
               <div className={styles.header__settings}>
+                {/* Язык */}
                 <div className={styles.settings_language}>
-                  <Text className={styles.settings_language} fontSize={12}>Rus</Text>
-                  <LangIcon />
+                  <LanguageSelect />
                 </div>
 
+                {/* Корзина */}
                 <Link href="/basket" className={styles.basket__box} passHref>
-                  <BascketIcon />
+                  <Box position="relative">
+                    <BascketIcon />
+                    {totalQuantity > 0 && (
+                      <Box
+                        position="absolute"
+                        top="-6px"
+                        right="-6px"
+                        bg="red.500"
+                        color="white"
+                        fontSize="10px"
+                        px="2"
+                        borderRadius="full"
+                        fontWeight="bold"
+                        lineHeight="1"
+                      >
+                        {totalQuantity}
+                      </Box>
+                    )}
+                  </Box>
                   <Text className={styles.basket__txt} fontSize={12}>
                     корзина
                   </Text>
                 </Link>
 
-
+                {/* Вход / Профиль */}
                 {isAuthenticated ? (
                   <Box
                     className={styles.signup}
@@ -94,14 +124,12 @@ const Header = () => {
                 )}
               </div>
 
+              {/* Иконка корзины для адаптива */}
               <Box className={styles.signup1}>
-                <img src={langImg.src} alt="Language" />
-                
                 <Link href="/basket" passHref>
                   <BascketIcon />
                 </Link>
               </Box>
-
             </div>
           </div>
         </div>
@@ -141,6 +169,7 @@ const Header = () => {
         <Catgories isOpen={isOpen} />
       </Box>
 
+      {/* Модалка регистрации */}
       {isRegistrationOpen && (
         <Box
           position="fixed"

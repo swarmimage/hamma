@@ -1,16 +1,17 @@
-import News from '@/components/Actions'
-import More from '@/components/Actions/more'
-import Footer from '@/components/Footer'
-import Layout from '@/components/Layout'
-import React from 'react'
+  import News from '@/components/Actions'
+  import Footer from '@/components/Footer'
+  import Layout from '@/components/Layout'
+  import React from 'react'
+  import { newsItems } from '@/data/newsData'
 
-const Newsmodule = () => {
-  return (
-      <Layout>
-        <News/>
-      <Footer/>
-    </Layout>
-  )
-}
+  const Newsmodule = () => {
+    return (
+        <Layout>
+          <News items={newsItems}  title="Новости"/>
+        <Footer/>
+      </Layout>
+    )
+  }
 
-export default Newsmodule
+  export default Newsmodule
+

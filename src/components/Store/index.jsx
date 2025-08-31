@@ -19,12 +19,13 @@ const Store = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
 
   return (
-    <Box className={styles.container}>
-        <div className={styles.store__top}>
-          <Text className={styles.store__title}  fontWeight="bold">
-            Лучшие строительные магазины
-          </Text>
-          <Box className={styles.title_button}>
+    // ✅ Используем глобальный container
+    <Box className="container">
+      <div className={styles.store__top}>
+        <Text className={styles.store__title} fontWeight="bold">
+          Лучшие строительные магазины
+        </Text>
+        <Box className={styles.title_button}>
           <Button 
             color="#fff"
             bgColor="#53c4af"
@@ -36,13 +37,12 @@ const Store = () => {
           >
             Все магазины
           </Button>
-          </Box> 
-          
-        </div>
-        
-     <Box className={styles.store__content}>
+        </Box>
+      </div>
+
+      <Box className={styles.store__content}>
         {isMobile ? (
-          <Swiper spaceBetween={10} slidesPerView="auto" className={styles.store__slider} breakpoints={1300}>
+          <Swiper spaceBetween={10} slidesPerView="auto" className={styles.store__slider}>
             {storeItems.map((item, index) => (
               <SwiperSlide key={index} className={styles.slide}>
                 <Box className={styles.card}>
@@ -65,6 +65,7 @@ const Store = () => {
           </div>
         )}
       </Box>
+
       <Box className={styles.after__button}>
         <Button
           color="#fff"

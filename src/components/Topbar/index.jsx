@@ -16,7 +16,7 @@ const TopBar = () => {
         <Link href="/action" className={styles.topbar_link}>
           Акции
         </Link>
-        <Link href="/action" className={styles.topbar_link}>
+        <Link href="/news" className={styles.topbar_link}>
           Новости
         </Link>
       </HStack>

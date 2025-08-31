@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.title {
+  margin-top: 30px;
+}
+
 .cartBlock {
   min-width: 0;
   /* важно, чтобы контент мог сжиматься */
@@ -44,3 +48,16 @@
     width: 100%; // на меньших экранах заполняет всю ширину
   }
 }
+
+.cartBlock {
+  width: 100%;
+  max-width: 1600px;
+}
+
+.chekbox {
+  border-bottom: 1px solid;
+  border-color: #0000001A;
+  width: 100%;
+  max-width: 1200px;
+}
+
