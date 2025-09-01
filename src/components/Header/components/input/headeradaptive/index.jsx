@@ -57,7 +57,7 @@ const Headeradaptive = () => {
                 </Box>
               </Link>
 
-              <Link href="/action" passHref>
+              <Link href="/news" passHref>
                 <Box as="a" className={styles.body__button}>
                   <News /> Новости
                 </Box>

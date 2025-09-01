@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '@/components/Footer'
 import Layout from '@/components/Layout'
-import Goods from '@/components/Product/index.'
+import Goods from '@/components/Product'
 
 
 const Product = () => {

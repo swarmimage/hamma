@@ -2,9 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import Footer from "@/components/Footer";
-import { storeItems } from "@/components/MaterialCard"; // берем массив прямо из MaterialCard
-import Goods from "@/components/Product/index.";
-
+import { storeItems } from "@/components/MaterialCard"; 
+import Goods from "@/components/Product";
 const ProductPage = () => {
   const router = useRouter();
   const { id } = router.query;

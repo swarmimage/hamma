@@ -5,12 +5,9 @@ import MaterialCard, { storeItems } from "@/components/MaterialCard"; // бер�
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import styles from "./styles.module.scss";
 import { Stars } from "@/icons/stars";
-import { Paymeicon } from "@/icons/payme-icon";
-import { Clickicon } from "@/icons/click-icon";
 import { Goldstar } from "@/icons/starr";
 import ProductGallery from "./slider";
 import { useCart } from "@/context/cart-context";
-import Basket from "@/pages/basket";
 import Link from "next/link";
 
 const Goods = () => {

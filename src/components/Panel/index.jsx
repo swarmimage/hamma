@@ -8,7 +8,7 @@ import { Cart } from '@/icons/Cart'
 import Data from '../Data'
 import Order from '../Zakaz'
 import Premium1 from '@/components/Premium'
-import Cards from '../Cards/index.'
+import Cards from '../Cards'
 
 const panelButtons = [
   { label: 'Мои Данные', icon: <Person />, key: 'data', component: <Data /> },

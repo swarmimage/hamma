@@ -14,17 +14,15 @@ import { Arrow1 } from "@/icons/arrow1";
 const ProductGallery = ({ images = [] }) => {
   const swiperRef = useRef(null);
 
-  // текущий слайд
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <Box display="flex" w="100%" minW={0} alignItems="flex-start">
-      {/* Левый блок — превью */}
       <Box
         w="90px"
         h="400px"
         flex="0 0 auto"
-       mr="clamp(20px, 7vw, 200px)"
+       mr="clamp(20px, 7vw, 20px)"
         sx={{
           display: "none",
           "@media (min-width: 1085px)": { display: "block" },
@@ -38,6 +36,7 @@ const ProductGallery = ({ images = [] }) => {
         >
           {images.map((src, index) => (
             <Image
+              marginTop={0}
               key={index}
               src={src}
               alt={`thumb-${index}`}
@@ -60,13 +59,12 @@ const ProductGallery = ({ images = [] }) => {
         </Box>
       </Box>
 
-      {/* Правый блок — основной слайдер */}
       <Box
         flex="1"
         minW={0}
         position="relative"
         bgImage="url('/backgroundimage.png')"
-        bgSize="1000px auto"
+        borderRadius={10}
       >
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -88,7 +86,6 @@ const ProductGallery = ({ images = [] }) => {
           ))}
         </Swiper>
 
-        {/* Кнопки */}
         <Box
           onClick={() => swiperRef.current?.slidePrev()}
           position="absolute"
