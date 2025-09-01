@@ -17,7 +17,7 @@ const Cards = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Box className={styles.container}>
+    <Box className="container">
       <Box className={styles.card_wrapper}>
         <Box className={styles.card}>
           <Box className={styles.card_header}>

@@ -17,11 +17,9 @@ const Goods = () => {
   const router = useRouter();
   const { id } = router.query;
   const { addToCart } = useCart();
-  // Находим товар по id
 
   const product = storeItems.find((item) => item.id === Number(id));
   const handleAddToCart = (item) => addToCart(item);
-  // Если товара нет — показываем заглушку
   if (!product) {
     return <Text fontSize="xl" p={5}>Товар не найден 😢</Text>;
   }
@@ -30,7 +28,6 @@ const Goods = () => {
     <Box className="container">
       <Box className={styles.goods_wrapper}>
         <Box className={styles.goods}>
-          {/* Заголовок */}
           <Box className={styles.title_box}>
             <Text
               className={styles.bottom_articul}
