@@ -4,7 +4,9 @@ import Layout from "@/components/Layout";
 import Footer from "@/components/Footer";
 import { actionsItems } from "@/data/actionsData";
 import { newsItems } from "@/data/newsData";
-import More from "@/components/Actions/more";
+import More from '@/components/Actions/more'
+
+
 
 const MorePage = () => {
   const router = useRouter();
