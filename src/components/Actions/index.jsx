@@ -9,13 +9,14 @@ const Actions = ({ items, title }) => {
     <div className="container">
       <Box className={styles.contact__wrapper}>
         <Box className={styles.contact}>
+          
           <Text className={styles.contact__title}>{title}</Text>
 
           <Box className={styles.contacts_card}>
             {items.map(item => (
               <Box key={item.id} className={styles.card_contactin}>
                 <Box className={styles.card_img}>
-                  <Image src={item.img} alt={item.title} width={388} height={100} />
+                  <Image className={styles.card_img} src={item.img} alt={item.title} width={388} height={100} />
                 </Box>
 
                 <Text className={styles.card_title}>{item.title}</Text>

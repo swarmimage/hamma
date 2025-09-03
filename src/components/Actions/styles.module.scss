@@ -2,8 +2,9 @@
 
 .contact__title {
   font-weight: 700;
-  font-size: clamp(22px, 5vw, 36px);
+  font-size: 36px;
   margin-top: 30px;
+  margin-bottom: 10px;
 
   @media (max-width: 650px) {
     margin-top: 30px;
@@ -12,7 +13,6 @@
 
 
 .card_contactin {
-  max-width: 388px;
   width: 100%;
   background-color: #fff;
   border-radius: 10px;
@@ -21,9 +21,7 @@
 
 .card_img {
   position: relative;   /* обязательно для fill */
-  width: 100%;          /* занимает всю ширину */
-  max-width: 388px;     /* но не больше 388px */
-  aspect-ratio: 388 / 100; /* сохраняет пропорции */
+  width: 100%;
 }
 
 .card_title{
@@ -50,8 +48,7 @@
 }
 
 .contacts_card {
-  justify-items: center; /* центрирует карточки в сетке */
-  padding: 20px 80px;
+  justify-items: center;
 }
 
 .contacts_card {

@@ -17,7 +17,7 @@ import { useState } from 'react'
 
 const ConfirmCardModal = ({ isOpen, onClose }) => {
   const [code, setCode] = useState('')
-  const [timer, setTimer] = useState('01:00') 
+  const [timer, setTimer] = useState('01:00')
 
   const handleConfirm = () => {
     console.log('Код подтверждения:', code)
@@ -37,9 +37,7 @@ const ConfirmCardModal = ({ isOpen, onClose }) => {
               <Text fontSize="md" color="gray.600">
                 Код отправили сообщением на номер
               </Text>
-              <Text  fontSize="lg">
-                +998 99 876 54 32
-              </Text>
+              <Text fontSize="lg">+998 99 876 54 32</Text>
             </Box>
 
             <Box>
@@ -53,6 +51,7 @@ const ConfirmCardModal = ({ isOpen, onClose }) => {
                 fontSize="xl"
                 letterSpacing="6px"
                 onChange={(e) => setCode(e.target.value)}
+                focusBorderColor="#53C4AF"
               />
             </Box>
 

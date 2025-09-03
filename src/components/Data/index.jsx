@@ -28,7 +28,6 @@ const Data = () => {
   }
 
   return (
-    
     <Box w={'100%'} className={styles.data_wrapper}>
       <Grid className={styles.card} templateColumns="1fr" gap={6}>
         <Text className={styles.title}>Мои данные</Text>
@@ -36,24 +35,24 @@ const Data = () => {
         <Grid templateColumns={['1fr', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={5}>
           <Box className={styles.input_group}>
             <Text className={styles.label}>Фамилия</Text>
-            <FormInput control={control} name="surname" type="text" />
+            <FormInput control={control} name="surname" type="text" focusBorderColor="#53C4AF" />
           </Box>
           <Box className={styles.input_group}>
             <Text className={styles.label}>Имя</Text>
-            <FormInput control={control} name="name" type="text" />
+            <FormInput control={control} name="name" type="text" focusBorderColor="#53C4AF" />
           </Box>
           <Box className={styles.input_group}>
             <Text className={styles.label}>
               Отчество <span className={styles.optional}>(Не обязательно)</span>
             </Text>
-            <FormInput control={control} name="fathername" type="text" />
+            <FormInput control={control} name="fathername" type="text" focusBorderColor="#53C4AF" />
           </Box>
         </Grid>
 
         <Grid templateColumns={['1fr', '1fr 1fr']} gap={5}>
           <Box className={styles.input_group}>
             <Text className={styles.label}>Дата рождения</Text>
-            <Input placeholder="дд/мм/гггг" />
+            <Input placeholder="дд/мм/гггг" focusBorderColor="#53C4AF" />
           </Box>
 
           <Box className={styles.gender_group}>
@@ -68,6 +67,7 @@ const Data = () => {
                 border="1px solid #ccc"
                 fontSize={14}
                 fontWeight={400}
+                _focus={{ borderColor: '#53C4AF', boxShadow: '0 0 0 1px #53C4AF' }}
               >
                 Мужской
               </Button>
@@ -81,6 +81,7 @@ const Data = () => {
                 borderLeft="none"
                 fontSize={14}
                 fontWeight={400}
+                _focus={{ borderColor: '#53C4AF', boxShadow: '0 0 0 1px #53C4AF' }}
               >
                 Женский
               </Button>
@@ -99,6 +100,7 @@ const Data = () => {
               placeholder="+998"
               sx={{ paddingLeft: '34px !important' }}
               w="100%"
+              focusBorderColor="#53C4AF"
             />
           </InputGroup>
         </Box>

@@ -12,7 +12,7 @@ import {
   Input,
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import ConfirmCardModal from './confirm/index.' 
+import ConfirmCardModal from './confirm/index.'
 
 const AddCardModal = ({ isOpen, onClose }) => {
   const [cardNumber, setCardNumber] = useState('')
@@ -53,6 +53,7 @@ const AddCardModal = ({ isOpen, onClose }) => {
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
                 maxLength={19}
+                focusBorderColor="#53C4AF"
               />
             </FormControl>
 
@@ -62,6 +63,7 @@ const AddCardModal = ({ isOpen, onClose }) => {
                 placeholder="Иван Иванов"
                 value={cardHolder}
                 onChange={(e) => setCardHolder(e.target.value)}
+                focusBorderColor="#53C4AF"
               />
             </FormControl>
 
@@ -72,6 +74,7 @@ const AddCardModal = ({ isOpen, onClose }) => {
                 value={expiry}
                 onChange={(e) => setExpiry(e.target.value)}
                 maxLength={5}
+                focusBorderColor="#53C4AF"
               />
             </FormControl>
 
@@ -83,6 +86,7 @@ const AddCardModal = ({ isOpen, onClose }) => {
                 onChange={(e) => setCvv(e.target.value)}
                 maxLength={3}
                 type="password"
+                focusBorderColor="#53C4AF"
               />
             </FormControl>
           </ModalBody>

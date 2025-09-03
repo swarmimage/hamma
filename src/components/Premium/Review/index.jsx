@@ -50,7 +50,9 @@ const Premreview = ({ isOpen, onClose, product }) => {
   const requiredFields = ['region', 'city', 'street', 'house', 'flat']
 
   const handleSubmit = () => {
-    const emptyFields = requiredFields.filter((f) => formData[f].trim().length === 0)
+    const emptyFields = requiredFields.filter(
+      (f) => formData[f].trim().length === 0
+    )
 
     if (emptyFields.length > 0) {
       const newTouched = {}
@@ -77,7 +79,9 @@ const Premreview = ({ isOpen, onClose, product }) => {
             <Box className={styles.card} textAlign="center">
               <Premverify className={styles.logo} />
               <Text className={styles.title}>Ваша заявка отправлена успешно</Text>
-              <Text className={styles.text}>Скоро с вами свяжутся наши операторы</Text>
+              <Text className={styles.text}>
+                Скоро с вами свяжутся наши операторы
+              </Text>
             </Box>
           ) : (
             <>
@@ -89,6 +93,7 @@ const Premreview = ({ isOpen, onClose, product }) => {
                     value={formData[field]}
                     onChange={handleChange}
                     ref={field === 'region' ? initialRef : undefined}
+                    focusBorderColor="#53C4AF"
                   />
                   {isInvalid(field) && (
                     <Text color="red.500" fontSize="12px">
@@ -105,6 +110,7 @@ const Premreview = ({ isOpen, onClose, product }) => {
                     placeholder="Подъезд"
                     value={formData.entrance}
                     onChange={handleChange}
+                    focusBorderColor="#53C4AF"
                   />
                 </FormControl>
                 <FormControl mb={2}>
@@ -113,6 +119,7 @@ const Premreview = ({ isOpen, onClose, product }) => {
                     placeholder="Этаж"
                     value={formData.floor}
                     onChange={handleChange}
+                    focusBorderColor="#53C4AF"
                   />
                 </FormControl>
               </Grid>
@@ -123,6 +130,7 @@ const Premreview = ({ isOpen, onClose, product }) => {
                   placeholder="Код домофона"
                   value={formData.code}
                   onChange={handleChange}
+                  focusBorderColor="#53C4AF"
                 />
               </FormControl>
 
@@ -132,18 +140,19 @@ const Premreview = ({ isOpen, onClose, product }) => {
                   placeholder="Ориентир"
                   value={formData.landmark}
                   onChange={handleChange}
+                  focusBorderColor="#53C4AF"
                 />
               </FormControl>
             </>
           )}
         </ModalBody>
 
-        <ModalFooter>
+        <ModalFooter className={styles.buttons}>
           {submitted ? (
             <Link href="/" passHref>
-              <Button as="a" colorScheme="teal" mr={3}>
-                Вернуться на главную
-              </Button>
+                <Button className={styles.button} bg="#53C4AF" color={'#fff'}   _hover={{ bg: '#42b09c' }}>
+                  Вернуться на главную
+                </Button>
             </Link>
           ) : (
             <>

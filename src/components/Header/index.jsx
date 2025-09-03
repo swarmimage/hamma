@@ -87,13 +87,13 @@ const Header = () => {
                     {totalQuantity > 0 && (
                       <Box
                         position="absolute"
-                        top="-6px"
+                        top="-4px"
                         right="-6px"
                         bg="red.500"
                         color="white"
                         fontSize="10px"
-                        px="2"
-                        borderRadius="full"
+                        padding={'3px 3px'}
+                        borderRadius="22px"
                         fontWeight="bold"
                         lineHeight="1"
                       >
@@ -128,6 +128,22 @@ const Header = () => {
               <Box className={styles.signup1}>
                 <Link href="/basket" passHref>
                   <BascketIcon />
+                   {totalQuantity > 0 && (
+                      <Box
+                        position="absolute"
+                        top="17px"
+                        right="22px"
+                        bg="red.500"
+                        color="white"
+                        fontSize="10px"
+                        padding={'2px 2px'}
+                        borderRadius="22px"
+                        fontWeight="bold"
+                        lineHeight="1"
+                      >
+                        {totalQuantity}
+                      </Box>
+                    )}
                 </Link>
               </Box>
             </div>
@@ -135,7 +151,6 @@ const Header = () => {
         </div>
       </Box>
 
-      {/* Затемнение фона */}
       <Box
         pos="fixed"
         top="110px"
@@ -151,7 +166,6 @@ const Header = () => {
         onClick={() => setIsOpen(false)}
       />
 
-      {/* Панель категорий */}
       <Box
         pos="fixed"
         top="110px"
@@ -169,7 +183,6 @@ const Header = () => {
         <Catgories isOpen={isOpen} />
       </Box>
 
-      {/* Модалка регистрации */}
       {isRegistrationOpen && (
         <Box
           position="fixed"

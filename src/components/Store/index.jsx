@@ -26,7 +26,7 @@ const Store = () => {
           Лучшие строительные магазины
         </Text>
         <Box className={styles.title_button}>
-          <Button 
+          <Button
             color="#fff"
             bgColor="#53c4af"
             fontWeight="500"
@@ -58,8 +58,10 @@ const Store = () => {
             {storeItems.map((item, index) => (
               <Box key={index} className={styles.card}>
                 <Image src={item.img} alt={item.title} className={styles.image} />
-                <Text className={styles.store__intitle}>{item.title}</Text>
-                <Text className={styles.store__intext}>{item.text}</Text>
+                <Box className={styles.card_desc}>
+                  <Text className={styles.store__intitle}>{item.title}</Text>
+                  <Text className={styles.store__intext}>{item.text}</Text>
+                </Box>
               </Box>
             ))}
           </div>

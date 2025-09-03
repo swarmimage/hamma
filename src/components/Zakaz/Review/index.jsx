@@ -33,10 +33,7 @@ const Review = ({ isOpen, onClose, product }) => {
       >
         <ModalHeader>Оцените товар</ModalHeader>
         <ModalCloseButton />
-        <ModalBody
-          pb={6}
-          overflow="hidden"   // 🔥 убрали скролл
-        >
+        <ModalBody pb={6} overflow="hidden">
           <Flex align="center" gap="12px" mb="16px">
             <Box
               w={{ base: '250px', sm: '60px', md: '270px' }}
@@ -75,6 +72,7 @@ const Review = ({ isOpen, onClose, product }) => {
               px="16px"
               py="10px"
               resize="none"
+              focusBorderColor="#53C4AF"
             />
           </FormControl>
 
@@ -86,6 +84,7 @@ const Review = ({ isOpen, onClose, product }) => {
               px="16px"
               py="10px"
               resize="none"
+              focusBorderColor="#53C4AF"
             />
           </FormControl>
 
@@ -97,6 +96,7 @@ const Review = ({ isOpen, onClose, product }) => {
               px="16px"
               py="10px"
               resize="none"
+              focusBorderColor="#53C4AF"
             />
           </FormControl>
         </ModalBody>

@@ -18,8 +18,8 @@ const panelButtons = [
 ]
 
 const userFullName = 'Фамилия Имя'
-
-const Panel = () => {
+ 
+const Panel = () => { 
   const [activeTab, setActiveTab] = useState('data')
   const activePanel = panelButtons.find((panel) => panel.key === activeTab)
 

@@ -39,11 +39,10 @@ const Catalog = () => {
 
   return (
     <Box className="container" position="relative">
-      <Text className={styles.catalog__title} fontSize="2xl" fontWeight="bold">
+      <Text className={styles.catalog__title} fontSize="30px" fontWeight="bold">
         Каталог
       </Text>
 
-      {/* Кнопка влево */}
       <Button
         className={styles.button_arrow}
         ref={prevRef}
@@ -60,7 +59,6 @@ const Catalog = () => {
         <Arrow1 style={{ transform: 'rotate(180deg)' }} />
       </Button>
 
-      {/* Кнопка вправо */}
       <Button
         className={styles.button_arrow}
         ref={nextRef}

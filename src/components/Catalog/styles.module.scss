@@ -1,6 +1,4 @@
 .catalog__content{
-  display: flex;
-  justify-content: space-between;
 }
 
 .catalog__title {
@@ -17,7 +15,7 @@
 .slide {
   width: auto !important;
   display: flex !important;
-  margin-left: clamp(15px, calc((100vw - 375px) / 15), 100px);
+  margin-left: clamp(10px, calc((100vw - 5px) / 15), 15px);
   width: 200px;
   height: 220px;
 }
@@ -28,21 +26,26 @@
 
 
 .card {
-  padding: 12px;
   background: white;
   border-radius: 12px;
-  width: 180px;
+  width: 220px;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .catalog__intitle {
   font-weight: 650;
   font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .image {
+  margin: 0 auto;
   width: 100%;
+  max-width: 180px;
   height: auto;
   object-fit: contain;
   margin-bottom: 8px;
